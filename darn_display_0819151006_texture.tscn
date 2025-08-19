@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cspi3ly8qjlat"]
+
+[ext_resource type="PackedScene" uid="uid://nulltf4dkxae" path="res://Asset-Models/Darn_Display_0819151006_texture.glb" id="1_44tk0"]
+
+[node name="Darn_Display_0819151006_texture" instance=ExtResource("1_44tk0")]
+
+[node name="Mesh_0" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
