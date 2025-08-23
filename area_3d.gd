@@ -1,12 +1,15 @@
 extends Area3D
+@export var animation_controller: AnimationPlayer
 
-func _ready():
-	connect("body_entered", Callable(self, "_on_body_entered"))
+func _on_area_entered(area):
+	# Ignore the bat and heart
+	if area.name == "bat" or area.name == "heart":
+		return
 
-func _on_body_entered(body):
-	if body.name == "Bat":
-		var anim_player = body.get_node("AnimationPlayer")
-		anim_player.play("Swing")
-
-		var word = get_parent() as RigidBody3D
-		word.reverse_direction()
+	# If "darn" or "dang" collides, trigger the animation
+	if area.name == "darn" or area.name == "dang":
+		if animation_controller:
+			if animation_controller.is_playing():
+				animation_controller.stop()
+			else:
+				animation_controller.play("swing")  # Play the animation directly

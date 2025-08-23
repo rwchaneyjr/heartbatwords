@@ -11,7 +11,7 @@ extends Node3D
 @export var pitch_direction: Vector3 = Vector3(0, 0, -1)
 
 # Reverse when crossing this Z (>= triggers the hit in your logic below)
-@export var hit_trigger_z: float = 1.0
+@export var hit_trigger_z: float = 1.5
 
 # Letters live here (optional). If empty, we’ll use this node’s direct children.
 @export var letters_container: NodePath = NodePath("")
