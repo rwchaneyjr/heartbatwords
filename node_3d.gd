@@ -1,53 +1,48 @@
 extends Node3D
 
 @export var start_delay: float = 3.0
-@export var pitch_speed: float = 20.0       # speed toward the plate
-@export var hit_speed: float   = 15.0       # speed after being "hit" back
-@export var friction: float    = 0.0        # linear drag (units/sec)
-@export var lock_y: bool       = true       # keep constant height
-@export var rotate_x_90: bool  = true       # rotate 90° on X at start
+@export var pitch_speed: float = 20.0
+@export var hit_speed: float   = 15.0
+@export var friction: float    = 0.0
+@export var lock_y: bool       = true
+@export var rotate_x_90: bool  = true
 
-# Throw direction (default: world -Z like mound -> plate)
 @export var pitch_direction: Vector3 = Vector3(0, 0, -1)
-
-# Reverse when crossing this Z (>= triggers the hit in your logic below)
-@export var hit_trigger_z: float = -1
-
-# Letters live here (optional). If empty, we’ll use this node’s direct children.
+@export var hit_trigger_z: float = 1.5
 @export var letters_container: NodePath = NodePath("")
 
-# --- Wave / snake animation settings (per-letter) ---
-@export var wave_cycle: float = 1.2         # seconds for a full wave
-@export var wave_amp_y: float = 0.34        # vertical bob amplitude (meters)
-@export var wave_amp_x: float = 0.12       # sideways sway amplitude (meters)
-@export var scale_amp: float  = 0.20       # +/-10% scale pulse
-@export var phase_gap: float  = 0.50       # seconds between letters (D->A->N->G)
-@export var roll_amp_deg: float = 8.0       # small tilt per letter (coaster bank)
+@export var wave_cycle: float = 1.2
+@export var wave_amp_y: float = 0.34
+@export var wave_amp_x: float = 0.12
+@export var scale_amp: float  = 0.20
+@export var phase_gap: float  = 0.50
+@export var roll_amp_deg: float = 8.0
 
 var velocity: Vector3 = Vector3.ZERO
-var _reversed_once: bool = false
-var _start_y: float = 0.0
+var _reversed_once := false
+var _start_y := 0.0
+var _prev_z := 0.0  # <-- track last z to detect crossing
 
 # wave caches
 var _letters: Array[Node3D] = []
 var _base_pos: Array[Vector3] = []
 var _base_scale: Array[Vector3] = []
 var _base_rot_z: Array[float] = []
-var _wave_t: float = 0.0
+var _wave_t := 0.0
 
 func _ready() -> void:
-	if rotate_x_90:
-		rotate_x(deg_to_rad(90.0))
+	#if rotate_x_90:
+		#rotate_x(deg_to_rad(90))
 
 	_start_y = global_position.y
+	_prev_z = global_position.z
 	_gather_letters()
 
 	await get_tree().create_timer(start_delay).timeout
 	start_pitch()
 
 func start_pitch() -> void:
-	# NOTE: you had "-pitch_direction" here; keeping it as you wrote,
-	# but if your throw heads the wrong way, set "var dir := pitch_direction" instead.
+	# Throw *along* the chosen direction (not negated)
 	var dir := -pitch_direction
 	dir.y = 0.0
 	if dir.length() <= 0.0001:
@@ -58,19 +53,19 @@ func _physics_process(delta: float) -> void:
 	# simple linear drag (optional)
 	if friction > 0.0 and velocity.length() > 0.0:
 		var v: float = max(velocity.length() - friction * delta, 0.0)
-		velocity = velocity.normalized() * v if v > 0.0 else Vector3.ZERO
+		velocity = (velocity.normalized() * v) if v > 0.0 else Vector3.ZERO
 
-	# move the whole word (Node3D has no built-in mover)
+	# move the whole word
 	global_position += velocity * delta
 
 	if lock_y:
 		global_position.y = _start_y
 
-	# reverse once when we pass the trigger plane
-	if not _reversed_once and global_position.z >= hit_trigger_z:
-		rotate_y(deg_to_rad(180))
+	# reverse once when we CROSS the trigger plane from below to >=
+	if _prev_z < hit_trigger_z and global_position.z >= hit_trigger_z:
 		reverse_direction()
-		_reversed_once = true
+
+	_prev_z = global_position.z
 
 	# update the per-letter wave
 	_apply_wave(delta)
@@ -102,17 +97,15 @@ func _gather_letters() -> void:
 		if c is Node3D:
 			var n3 := c as Node3D
 			_letters.append(n3)
-			_base_pos.append(n3.transform.origin)         # local pos
-			_base_scale.append(n3.scale)                  # local scale
-			_base_rot_z.append(n3.rotation.z)             # local Z-rot (bank)
+			_base_pos.append(n3.transform.origin)
+			_base_scale.append(n3.scale)
+			_base_rot_z.append(n3.rotation.z)
 
-# A tiny squash on impact (call from reverse_direction if you want)
 func _pop_letters() -> void:
 	for i in _letters.size():
 		var k := _letters[i]
 		k.scale = _base_scale[i] * 1.1
 
-# Animate letters with a traveling wave / rollercoaster feel
 func _apply_wave(delta: float) -> void:
 	if _letters.is_empty():
 		return
@@ -126,18 +119,14 @@ func _apply_wave(delta: float) -> void:
 		var base_s := _base_scale[i]
 		var base_rz := _base_rot_z[i]
 
-		# phase offset per letter so the wave travels across D->A->N->G
 		var phase := ((_wave_t - float(i) * phase_gap) / wave_cycle) * two_pi
 
-		# position offsets
 		var dy := sin(phase) * wave_amp_y
 		var dx := cos(phase) * wave_amp_x
 		L.transform.origin = base_p + Vector3(dx, dy, 0.0)
 
-		# scale pulse (symmetric xyz)
 		var s := 1.0 + sin(phase) * scale_amp
 		L.scale = base_s * s
 
-		# small banking roll for coaster feel
 		var tilt := deg_to_rad(sin(phase) * roll_amp_deg)
 		L.rotation.z = base_rz + tilt

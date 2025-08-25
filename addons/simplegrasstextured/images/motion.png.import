@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w07bdigauptl"
-path.s3tc="res://.godot/imported/Darn_Display_0819151006_texture_Image_2.jpg-8d5095fcadf3ee15332ae71cd8f30640.s3tc.ctex"
+uid="uid://dk6rqq2wmb45o"
+path.s3tc="res://.godot/imported/motion.png-ac3355e19edb929f8c8fd048d57b67cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "2edd84db56911206cca5987a314b9f6e"
-}
 
 [deps]
 
-source_file="res://Asset-Models/Darn_Display_0819151006_texture_Image_2.jpg"
-dest_files=["res://.godot/imported/Darn_Display_0819151006_texture_Image_2.jpg-8d5095fcadf3ee15332ae71cd8f30640.s3tc.ctex"]
+source_file="res://addons/simplegrasstextured/images/motion.png"
+dest_files=["res://.godot/imported/motion.png-ac3355e19edb929f8c8fd048d57b67cc.s3tc.ctex"]
 
 [params]
 
@@ -27,8 +24,8 @@ compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Asset-Models/Darn_Display_0819151006_texture_Image_2.jpg"
+roughness/mode=7
+roughness/src_normal="res://textures/fern_normal.tga"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biurcxjt5o48a"
-path.s3tc="res://.godot/imported/Darn_Display_0819151006_texture_Image_0.jpg-d9077165ddbecf14969c7f9cbec02a67.s3tc.ctex"
+uid="uid://i566v0wqsfa"
+path.s3tc="res://.godot/imported/wind_pattern.png-414bc96d501e14f1400565420145e185.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "de1b26d47ff23c298ae60774851c262e"
-}
 
 [deps]
 
-source_file="res://Asset-Models/Darn_Display_0819151006_texture_Image_0.jpg"
-dest_files=["res://.godot/imported/Darn_Display_0819151006_texture_Image_0.jpg-d9077165ddbecf14969c7f9cbec02a67.s3tc.ctex"]
+source_file="res://addons/simplegrasstextured/images/wind_pattern.png"
+dest_files=["res://.godot/imported/wind_pattern.png-414bc96d501e14f1400565420145e185.s3tc.ctex"]
 
 [params]
 
@@ -27,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=-3
+roughness/src_normal="res://textures/fern_normal.tga"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
