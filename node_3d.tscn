@@ -834,7 +834,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52306, -67.3994, 11.2351)
 transform = Transform3D(1, 0, 0, 0, 0.810625, 0.585566, 0, -0.585566, 0.810625, 618.325, 101.068, -772.383)
 
 [node name="Heart" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971, 0.00197847, 0.00275664, -0.00195818, 0.999994, 1.534, -70.4914, -1.99)
+transform = Transform3D(0.999969, 0.00738129, -0.00274212, -0.00737587, 0.999971, 0.00197847, 0.00275665, -0.00195818, 0.999994, 1.534, -70.4914, -1.99)
 mesh = SubResource("ArrayMesh_a202f")
 skeleton = NodePath("")
 
@@ -907,7 +907,7 @@ autoplay = "swing"
 speed_scale = 1.2
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.6582e-08, 0, 1, 0, -8.74228e-08, 0, -0.990383, 10.885, -70, 20.799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.990383, 1.654, -69, -196.147)
 script = ExtResource("1_jsk3o")
 
 [node name="letterD" parent="Node3D" instance=ExtResource("1_wc5p8")]
@@ -923,7 +923,7 @@ transform = Transform3D(-0.999999, 8.80852e-08, -3.82959e-15, 0, -4.40426e-08, -
 transform = Transform3D(-1, 0, -8.76105e-08, 0, 1.00758, 0, 8.74227e-08, 0, -1.00215, 2.76809, -0.65406, 103.459)
 
 [node name="dang" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.469441, 0.882964, 0, -0.882964, 0.469441, 4.536, -70, -117.141)
+transform = Transform3D(1, 0, 0, 0, 0.469441, 0.882964, 0, -0.882964, 0.469441, 3.09229, -69.0274, -117.77)
 script = ExtResource("8_jsk3o")
 
 [node name="d" type="MeshInstance3D" parent="dang"]
@@ -956,6 +956,6 @@ shape = SubResource("BoxShape3D_i5arm")
 debug_fill = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276.521, -71.5636, -455.305)
-size = Vector3(1021.41, 0.001, 1218.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.886, -71.5636, -455.305)
+size = Vector3(1852.22, 0.001, 1218.09)
 material = SubResource("ORMMaterial3D_i5arm")
