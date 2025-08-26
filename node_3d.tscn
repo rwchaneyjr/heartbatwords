@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=44 format=4 uid="uid://8fjcn4x3iult"]
 
 [ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="1_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://c0ihdwdavsatl" path="res://Asset-Models/letterD.glb" id="1_wc5p8"]
@@ -825,16 +825,22 @@ size = Vector3(14.782, 10.2511, 6.41675)
 next_pass = SubResource("ShaderMaterial_jka67")
 albedo_texture = ExtResource("4_r3fl7")
 
+[sub_resource type="Environment" id="Environment_jsk3o"]
+background_mode = 1
+background_color = Color(0.0784314, 0.639216, 0.921569, 1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6672, -67.3994, 7.49784)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.810625, 0.585566, 0, -0.585566, 0.810625, 618.325, 101.068, -772.383)
+transform = Transform3D(1, 0, 0, 0, -0.20024, 0.979747, 0, -0.979747, -0.20024, 618.325, 101.068, -772.383)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
 
 [node name="Heart" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999969, 0.00738147, -0.00274211, -0.00737605, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 1.534, -70.4914, -6.4332)
+transform = Transform3D(0.999969, 0.00738146, -0.00274211, -0.00737605, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 1.534, -70.4914, -6.4332)
 mesh = SubResource("ArrayMesh_a202f")
 skeleton = NodePath("")
 
@@ -956,6 +962,9 @@ shape = SubResource("BoxShape3D_i5arm")
 debug_fill = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.886, -71.5636, -455.305)
-size = Vector3(1852.22, 0.001, 1218.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.258, -71.5636, -570.308)
+size = Vector3(2654.51, 0.001, 1664.81)
 material = SubResource("ORMMaterial3D_i5arm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jsk3o")
