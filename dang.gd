@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var start_delay: float = 3.0
+@export var start_delay: float = 2.0
 @export var pitch_speed: float = 20.0       # speed toward the plate
 @export var hit_speed: float   = 15.0       # speed after being "hit" back
 @export var friction: float    = 0.0        # linear drag (units/sec)
@@ -11,7 +11,7 @@ extends Node3D
 @export var pitch_direction: Vector3 = Vector3(0, 0, -1)
 
 # Reverse when crossing this Z (>= triggers the hit in your logic below)
-@export var hit_trigger_z: float = 1.5
+@export var hit_trigger_z: float = -5.9
 
 # Letters live here (optional). If empty, we’ll use this node’s direct children.
 @export var letters_container: NodePath = NodePath("")
