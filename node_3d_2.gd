@@ -2,12 +2,12 @@
 extends Node3D
 
 # Settings you can adjust
-@export var pitch_speed: float = 5.0  # How fast the word moves
-@export var max_z_distance: float = 18 # How far forward before it bounces back
+@export var pitch_speed: float = 5.1  # How fast the word moves
+@export var max_z_distance: float = 20 # How far forward before it bounces back
 @export var start_z_position: float = -80 # Starting position behind batter (positive because of rotation)
 @export var swing_animation_name: String = "swing"  # Name of the swing animation
 @export var area_collider_path: NodePath  # Path to your Area3D collider
-@export var start_delay: float = 2.0
+@export var start_delay: float = 7
 # Internal variables
 var moving_forward: bool = true
 var original_position: Vector3

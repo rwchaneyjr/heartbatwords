@@ -1025,7 +1025,7 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 [node name="Node3D" type="Node3D" parent="DirectionalLight3D2"]
 
 [node name="Heart" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999969, 0.00738137, -0.00274212, -0.00737596, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 1.534, -70.4914, -6.4332)
+transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 1.534, -70.4914, -6.4332)
 mesh = SubResource("ArrayMesh_a202f")
 skeleton = NodePath("")
 
@@ -1098,7 +1098,7 @@ autoplay = "swing"
 speed_scale = 1.2
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.6582e-08, 0, 1, 0, 8.74228e-08, 0, -0.990383, 10.9253, -69.4, 14.9567)
+transform = Transform3D(-1, 0, -8.6582e-08, 0, 1, 0, 8.74228e-08, 0, -0.990383, 10.9253, -69.4, -17.2476)
 script = ExtResource("1_jsk3o")
 
 [node name="letterD" parent="Node3D" instance=ExtResource("1_wc5p8")]
