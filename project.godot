@@ -15,6 +15,12 @@ run/main_scene="uid://8fjcn4x3iult"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/aspect="ignore"
+window/stretch/scale=4.08
+window/stretch/scale_mode="integer"
+
 [dotnet]
 
 project/assembly_name="HeartBatWords"
