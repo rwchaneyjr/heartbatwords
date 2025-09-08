@@ -4,7 +4,7 @@ extends Camera3D
 @export var follow_speed: float = 10.0
 @export var camera_distance: float = 15.0
 @export var camera_height: float = 6.0
-@export var horizontal_offset: float = 0 # New: positive = right, negative = left
+@export var horizontal_offset: float = 9.0 #// New: positive = right, negative = left
 
 func _ready():
 	if not target:
