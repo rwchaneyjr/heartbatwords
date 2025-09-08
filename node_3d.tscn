@@ -1502,6 +1502,22 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 [node name="Node3D" type="Node3D" parent="DirectionalLight3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.09293, -1.67154, 0.084644, -0.0243038, -0.0595527, 3.94809, -0.129202, -14.1285, -0.0266556, -6.09581, -67.2393, -138.887)
+script = ExtResource("3_4arys")
+
+[node name="letterD" parent="Node3D" instance=ExtResource("4_6iypd")]
+transform = Transform3D(-0.169797, -0.021814, 0.46978, 0.4656, 0.0625344, 0.17119, -0.0662235, 0.495594, -0.000923106, 3.06816, -0.522383, -0.262319)
+
+[node name="letterA" parent="Node3D" instance=ExtResource("5_tereu")]
+transform = Transform3D(0.058916, 2.28174e-08, -0.496517, -0.494938, -0.0398385, -0.0587287, -0.039561, 0.49841, -0.00469423, 2.88497, -0.13739, -0.299854)
+
+[node name="letterR" parent="Node3D" instance=ExtResource("6_cdqbm")]
+transform = Transform3D(-0.229658, 0.444136, 4.37114e-08, 0.444136, 0.229658, -3.19476e-08, -4.84556e-08, 2.41536e-08, -0.5, 2.82255, 0.0703415, -0.167732)
+
+[node name="letterN" parent="Node3D" instance=ExtResource("7_imku0")]
+transform = Transform3D(0.235367, -0.441137, -7.54979e-08, -0.441137, -0.235367, 0, -3.55395e-08, 6.66099e-08, -0.5, 2.6366, 0.703, -0.083949)
+
 [node name="dang" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.517699, 0.855563, 0, -0.855563, 0.517699, 4.53641, -69.4046, -101.992)
 script = ExtResource("8_jsk3o")
@@ -1525,22 +1541,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4756, 0, -0.12197)
 mesh = SubResource("ArrayMesh_tereu")
 skeleton = NodePath("")
-
-[node name="Node3D" type="Node3D" parent="dang"]
-transform = Transform3D(-6.41965, 0, -4.08373e-07, 0, 2.2674, 0, 5.61223e-07, 0, -4.67124, -0.319421, 2.61123, -0.0619988)
-script = ExtResource("3_4arys")
-
-[node name="letterD" parent="dang/Node3D" instance=ExtResource("4_6iypd")]
-transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 3.00716, -0.318432, -0.273293)
-
-[node name="letterA" parent="dang/Node3D" instance=ExtResource("5_tereu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.10239, 0.289506, 0.014504)
-
-[node name="letterR" parent="dang/Node3D" instance=ExtResource("6_cdqbm")]
-transform = Transform3D(-1, 0, -8.74228e-08, 7.10543e-15, 1, -5.96046e-08, 8.74228e-08, 0, -1, 1.48371, -0.00815964, -0.330761)
-
-[node name="letterN" parent="dang/Node3D" instance=ExtResource("7_imku0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.853944, 0.191896, -0.230777)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72972, 1.15082, 14.8175)
