@@ -5,7 +5,7 @@ extends Node3D
 @export var pitch_speed: float = 5.1  # How fast the word moves
 @export var max_z_distance: float = 20 # How far forward before it bounces back
 @export var start_z_position: float = -80 # Starting position behind batter (positive because of rotation)
-@export var swing_animation_name: String = "swing"  # Name of the swing animation
+#@export var swing_animation_name: String = "swing"  # Name of the swing animation
 @export var area_collider_path: NodePath  # Path to your Area3D collider
 @export var start_delay: float = 7
 # Internal variables
@@ -140,7 +140,7 @@ func play_swing_animation_on_batter():
 	if batter:
 		var batter_anim = batter.get_node_or_null("AnimationPlayer")
 		if batter_anim:
-			batter_anim.play(swing_animation_name)
+			#batter_anim.play(swing_animation_name)
 			return
 	
 	# Method 2: Search for any node with "batter" in the name
@@ -149,5 +149,5 @@ func play_swing_animation_on_batter():
 		if child.name.to_lower().contains("batter"):
 			var anim_player = child.get_node_or_null("AnimationPlayer")
 			if anim_player:
-				anim_player.play(swing_animation_name)
+				#anim_player.play(swing_animation_name)
 				return

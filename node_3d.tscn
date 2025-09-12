@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=72 format=4 uid="uid://8fjcn4x3iult"]
 
 [ext_resource type="Script" uid="uid://b3ruxyybnwf7n" path="res://camera_3d.gd" id="1_4arys"]
 [ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="3_4arys"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c63oq7jbr5554" path="res://Asset-Models/letterN.glb" id="7_imku0"]
 [ext_resource type="Script" uid="uid://clbtpq5cnmpiv" path="res://node_3d_2.gd" id="8_4arys"]
 [ext_resource type="Script" uid="uid://h2mxxqct21hg" path="res://dang.gd" id="8_jsk3o"]
+[ext_resource type="Script" uid="uid://bwnw6jcy7b8vi" path="res://node_3d_4.gd" id="10_6iypd"]
+[ext_resource type="Script" uid="uid://dn2tejliqsp5" path="res://animation_player.gd" id="11_tereu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do2m5"]
 
@@ -931,7 +933,6 @@ tracks/7/keys = PackedFloat32Array(0, 1, -0.000932438, -0.00086583, -0.00232332,
 [sub_resource type="Animation" id="Animation_rvu18"]
 resource_name = "Bat|BatAction"
 length = 0.833333
-loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1608,11 +1609,14 @@ transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, 9.69158e-09, -3.72529e-09)
 mesh = SubResource("BoxMesh_4arys")
 
+[node name="Node3D4" type="Node3D" parent="."]
+script = ExtResource("10_6iypd")
+
 [node name="heart (3)" type="Node3D" parent="."]
 transform = Transform3D(1.07501e-10, 0, -0.0711307, 0, 0.0691432, 0, 0.00901488, 0, 8.48226e-10, 20.791, -57.319, 12.3275)
 
 [node name="Heart" type="MeshInstance3D" parent="heart (3)"]
-transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747557, 0.00694395, -0.00744338, 3.99999, -43.7559, -67.17, 143.448)
+transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747558, 0.00694395, -0.00744339, 3.99999, -43.7559, -67.17, 143.448)
 mesh = SubResource("ArrayMesh_r3fl7")
 skeleton = NodePath("")
 
@@ -1625,7 +1629,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(-0.159646, 0.557146, 0.814924, -0.717785, -0.632245, 0.291636, 0.677715, -0.538381, 0.500847, 0.0158012, 1.19296e-09, 0.00831326)
 bones/0/enabled = true
 bones/0/position = Vector3(0.0158012, 1.19296e-09, 0.00831326)
-bones/0/rotation = Quaternion(0.492887, -0.0814784, 0.75709, -0.420998)
+bones/0/rotation = Quaternion(0.492887, -0.0814784, 0.757089, -0.420998)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Mid.L"
 bones/1/parent = 0
@@ -1700,7 +1704,7 @@ mesh = SubResource("ArrayMesh_wc5p8")
 skin = SubResource("Skin_i5arm")
 
 [node name="Bat" type="MeshInstance3D" parent="heart (3)/Heart"]
-transform = Transform3D(0.194295, -0.186349, -0.130184, -0.128049, 0.0517808, -0.265229, 0.187823, 0.228072, -0.0461515, 0.811286, 0.0103233, 1.31368)
+transform = Transform3D(0.26727, 0.0691121, -0.114956, -0.0134251, 0.268784, 0.130381, 0.133459, -0.111369, 0.243331, 0.811286, 0.0103233, 1.31368)
 mesh = SubResource("ArrayMesh_3v7ru")
 skeleton = NodePath("")
 
@@ -1709,3 +1713,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_f4k2e")
 }
 autoplay = "Bat|BatAction"
+script = ExtResource("11_tereu")
