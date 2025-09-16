@@ -1610,13 +1610,14 @@ transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, 9.69158e-09, -3.725
 mesh = SubResource("BoxMesh_4arys")
 
 [node name="Node3D4" type="Node3D" parent="."]
+visible = false
 script = ExtResource("10_6iypd")
 
 [node name="heart (3)" type="Node3D" parent="."]
 transform = Transform3D(1.07501e-10, 0, -0.0711307, 0, 0.0691432, 0, 0.00901488, 0, 8.48226e-10, 20.791, -57.319, 12.3275)
 
 [node name="Heart" type="MeshInstance3D" parent="heart (3)"]
-transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747558, 0.00694395, -0.00744339, 3.99999, -43.7559, -67.17, 143.448)
+transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747558, 0.00694395, -0.00744339, 3.99999, -43.5832, -67.3568, 43.4881)
 mesh = SubResource("ArrayMesh_r3fl7")
 skeleton = NodePath("")
 
