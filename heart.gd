@@ -1,19 +1,23 @@
-extends MeshInstance3D
+extends Node3D
 
-@export var animation_player_path: NodePath
-var anim_player: AnimationPlayer
+@export var speed: float = 5.0   # Movement speed
 
-func _ready():
-	# Get reference to the AnimationPlayer node
-	anim_player = get_node(animation_player_path)
+func _process(delta: float) -> void:
+	var input_vector = Vector3.ZERO
 
-func _process(delta):
-	# Example: press "B" to play bat animation
-	if Input.is_action_just_pressed("Bat"):
-		if anim_player.has_animation("Bat"):
-			anim_player.play("Bat")
+	# WASD / Arrow key movement
+	if Input.is_action_pressed("ui_up"):    # W / Up Arrow
+		input_vector.z -= 1
+	if Input.is_action_pressed("ui_down"):  # S / Down Arrow
+		input_vector.z += 1
+	if Input.is_action_pressed("ui_left"):  # A / Left Arrow
+		input_vector.x -= 1
+	if Input.is_action_pressed("ui_right"): # D / Right Arrow
+		input_vector.x += 1
 
-	# Example: press "W" to play walk animation
-	if Input.is_action_just_pressed("walk_action"):
-		if anim_player.has_animation("Walk"):
-			anim_player.play("Walk")
+	# Normalize so diagonal isn’t faster
+	if input_vector != Vector3.ZERO:
+		input_vector = input_vector.normalized()
+
+	# Apply movement
+	translate(input_vector * speed * delta)

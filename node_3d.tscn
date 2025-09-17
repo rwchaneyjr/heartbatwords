@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=73 format=4 uid="uid://8fjcn4x3iult"]
 
 [ext_resource type="Script" uid="uid://b3ruxyybnwf7n" path="res://camera_3d.gd" id="1_4arys"]
 [ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="3_4arys"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://clbtpq5cnmpiv" path="res://node_3d_2.gd" id="8_4arys"]
 [ext_resource type="Script" uid="uid://h2mxxqct21hg" path="res://dang.gd" id="8_jsk3o"]
 [ext_resource type="Script" uid="uid://bwnw6jcy7b8vi" path="res://node_3d_4.gd" id="10_6iypd"]
+[ext_resource type="Script" uid="uid://bcldim22fn52e" path="res://heart_(3).gd" id="11_cdqbm"]
 [ext_resource type="Script" uid="uid://dn2tejliqsp5" path="res://animation_player.gd" id="11_tereu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do2m5"]
@@ -1493,7 +1494,7 @@ _data = {
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(2.96823, 0, 1.85461, 0, 3.5, 0, -1.85461, 0, 2.96823, 31.4665, -64.2716, 15.8124)
+transform = Transform3D(2.96823, 0, 1.85461, 0, 3.5, 0, -1.85461, 0, 2.96823, 18.7797, -70.0168, 7.82637)
 script = ExtResource("1_4arys")
 target = NodePath("../heart (3)/Heart")
 
@@ -1603,10 +1604,10 @@ libraries = {
 }
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 1.57353, -65.1362, -6.44369)
+transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 31.1707, -65.3353, 3.4637)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3"]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, 9.69158e-09, -3.72529e-09)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, -2.35517, -3.72529e-09)
 mesh = SubResource("BoxMesh_4arys")
 
 [node name="Node3D4" type="Node3D" parent="."]
@@ -1614,10 +1615,12 @@ visible = false
 script = ExtResource("10_6iypd")
 
 [node name="heart (3)" type="Node3D" parent="."]
-transform = Transform3D(1.07501e-10, 0, -0.0711307, 0, 0.0691432, 0, 0.00901488, 0, 8.48226e-10, 20.791, -57.319, 12.3275)
+transform = Transform3D(1.07501e-10, 0, -0.0711307, 0, 0.0691432, 0, 0.00901488, 0, 8.48226e-10, 20.791, -65.7707, 6.37204)
+script = ExtResource("11_cdqbm")
+face_node_path = NodePath("Heart")
 
 [node name="Heart" type="MeshInstance3D" parent="heart (3)"]
-transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747558, 0.00694395, -0.00744339, 3.99999, -43.5832, -67.3568, 43.4881)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -43.5832, -73.0109, 43.4881)
 mesh = SubResource("ArrayMesh_r3fl7")
 skeleton = NodePath("")
 
@@ -1705,7 +1708,7 @@ mesh = SubResource("ArrayMesh_wc5p8")
 skin = SubResource("Skin_i5arm")
 
 [node name="Bat" type="MeshInstance3D" parent="heart (3)/Heart"]
-transform = Transform3D(0.26727, 0.0691121, -0.114956, -0.0134251, 0.268784, 0.130381, 0.133459, -0.111369, 0.243331, 0.811286, 0.0103233, 1.31368)
+transform = Transform3D(0.267492, 0.0708011, -0.113402, -0.126646, 0.0529471, -0.265672, -0.0428226, 0.285671, 0.0773461, 0.811286, 0.0103233, 1.31368)
 mesh = SubResource("ArrayMesh_3v7ru")
 skeleton = NodePath("")
 
@@ -1713,5 +1716,5 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_f4k2e")
 }
-autoplay = "Bat|BatAction"
+autoplay = "Heart|Walk"
 script = ExtResource("11_tereu")
