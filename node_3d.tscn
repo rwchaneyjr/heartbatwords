@@ -1414,6 +1414,7 @@ tracks/7/keys = PackedFloat32Array(0, 1, 0.603903, -0.077308, -0.216269, 0.76325
 [sub_resource type="Animation" id="Animation_3nwyg"]
 resource_name = "Heart|Walk"
 length = 1.4
+loop_mode = 2
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1620,7 +1621,7 @@ script = ExtResource("11_cdqbm")
 face_node_path = NodePath("Heart")
 
 [node name="Heart" type="MeshInstance3D" parent="heart (3)"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -43.5832, -73.0109, 43.4881)
+transform = Transform3D(3.99995, 0.018593, -0.00690929, -0.01858, 3.99995, 0.00747558, 0.00694395, -0.00744339, 3.99999, -43.5832, -73.0109, 43.4881)
 mesh = SubResource("ArrayMesh_r3fl7")
 skeleton = NodePath("")
 
@@ -1633,14 +1634,14 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(-0.159646, 0.557146, 0.814924, -0.717785, -0.632245, 0.291636, 0.677715, -0.538381, 0.500847, 0.0158012, 1.19296e-09, 0.00831326)
 bones/0/enabled = true
 bones/0/position = Vector3(0.0158012, 1.19296e-09, 0.00831326)
-bones/0/rotation = Quaternion(0.492887, -0.0814784, 0.757089, -0.420998)
+bones/0/rotation = Quaternion(0.492887, -0.0814784, 0.75709, -0.420998)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Mid.L"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 1.10009e-10, 2.38415e-07, -1.0999e-10, 1, -8.12734e-08, -2.38415e-07, 8.12734e-08, 1, -2.43271e-12, 0.00150539, -5.65372e-10)
 bones/1/enabled = true
 bones/1/position = Vector3(1.49012e-10, 0.00150539, 3.53903e-10)
-bones/1/rotation = Quaternion(-0.418563, 1.64496e-07, -0.211491, 0.88322)
+bones/1/rotation = Quaternion(-0.418563, 1.55885e-07, -0.211491, 0.88322)
 bones/1/scale = Vector3(1.35281, 0.54642, 1.35281)
 bones/2/name = "Mid.L_end"
 bones/2/parent = 1
@@ -1675,7 +1676,7 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(1, 3.30044e-11, -2.38424e-07, -3.30237e-11, 1, -8.08497e-08, 2.38424e-07, 8.08497e-08, 1, -3.39562e-12, 0.00150539, 5.6537e-10)
 bones/6/enabled = true
 bones/6/position = Vector3(-2.79397e-10, 0.00150539, -1.70665e-09)
-bones/6/rotation = Quaternion(-0.525659, 0.000732742, 0.383573, 0.759311)
+bones/6/rotation = Quaternion(-0.522183, -1.30232e-07, 0.382629, 0.762181)
 bones/6/scale = Vector3(1.05478, 0.898831, 1.05478)
 bones/7/name = "Mid.R_end"
 bones/7/parent = 6
@@ -1708,7 +1709,7 @@ mesh = SubResource("ArrayMesh_wc5p8")
 skin = SubResource("Skin_i5arm")
 
 [node name="Bat" type="MeshInstance3D" parent="heart (3)/Heart"]
-transform = Transform3D(0.267492, 0.0708011, -0.113402, -0.126646, 0.0529471, -0.265672, -0.0428226, 0.285671, 0.0773461, 0.811286, 0.0103233, 1.31368)
+transform = Transform3D(0.267492, 0.070801, -0.113402, -0.126646, 0.0529471, -0.265672, -0.0428226, 0.285671, 0.0773461, 0.811286, 0.0103233, 1.31368)
 mesh = SubResource("ArrayMesh_3v7ru")
 skeleton = NodePath("")
 
@@ -1716,5 +1717,4 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_f4k2e")
 }
-autoplay = "Heart|Walk"
 script = ExtResource("11_tereu")
