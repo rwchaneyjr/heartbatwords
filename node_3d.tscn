@@ -1,5 +1,6 @@
-[gd_scene load_steps=79 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=81 format=4 uid="uid://8fjcn4x3iult"]
 
+[ext_resource type="Script" uid="uid://b3ruxyybnwf7n" path="res://camera_3d.gd" id="1_cdqbm"]
 [ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="3_4arys"]
 [ext_resource type="PackedScene" uid="uid://c0ihdwdavsatl" path="res://Asset-Models/letterD.glb" id="4_6iypd"]
 [ext_resource type="Texture2D" uid="uid://cubr1a55brlfp" path="res://addons/simplegrasstextured/sgt_icon_48.svg" id="4_r3fl7"]
@@ -11,9 +12,6 @@
 [ext_resource type="Script" uid="uid://bwnw6jcy7b8vi" path="res://node_3d_4.gd" id="10_6iypd"]
 [ext_resource type="Script" uid="uid://dy6dth4gp2b62" path="res://heart.gd" id="11_cdqbm"]
 [ext_resource type="Script" uid="uid://dn2tejliqsp5" path="res://animation_player.gd" id="12_imku0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cdqbm"]
-size = Vector3(4.79023, 2.13889, 2.35986)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_imku0"]
 size = Vector3(4.7218, 2.60779, 3.09741)
@@ -1837,10 +1835,18 @@ _data = {
 &"Walk": SubResource("Animation_p46pc")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_tereu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdqbm"]
+transparency = 1
+depth_draw_mode = 1
+
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(2.96823, 0, 1.85461, 0, 3.5, 0, -1.85461, 0, 2.96823, 18.7797, -58.3591, 7.82637)
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(2.96823, 0, 1.85461, 0, 3.5, 0, -1.85461, 0, 2.96823, 24.6428, -58.3591, -8.77464)
+script = ExtResource("1_cdqbm")
+target = NodePath("../heartGoodCPY/Heart")
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.0954461, 367.69, 2.39938, -250.296)
@@ -1848,34 +1854,15 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 [node name="Node3D" type="Node3D" parent="DirectionalLight3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("bat")]
-transform = Transform3D(1.09293, -1.67154, 0.084649, -0.0243053, -0.0595564, 3.94809, -0.129202, -14.1285, -0.0266573, 2.04588, -67.2517, -114.863)
-script = ExtResource("3_4arys")
-bat = NodePath("../heartGoodCPY/Heart/Bat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
-transform = Transform3D(1.9564, 0, -6.23986e-08, -9.31323e-09, 1, -4.14439e-08, -9.10077e-08, 6.94767e-07, 1, 4.18532, 0.201466, 0.176525)
-shape = SubResource("BoxShape3D_cdqbm")
-
-[node name="letterD" parent="Node3D" instance=ExtResource("4_6iypd")]
-transform = Transform3D(-0.169797, -0.021814, 0.46978, 0.4656, 0.0625344, 0.17119, -0.0662235, 0.495594, -0.000923106, 3.06816, -0.522383, -0.262319)
-
-[node name="letterA" parent="Node3D" instance=ExtResource("5_tereu")]
-transform = Transform3D(0.058916, 2.28174e-08, -0.496517, -0.494938, -0.0398385, -0.0587287, -0.039561, 0.49841, -0.00469423, 2.88497, -0.13739, -0.299854)
-
-[node name="letterR" parent="Node3D" instance=ExtResource("6_cdqbm")]
-transform = Transform3D(-0.229658, 0.444136, 4.37114e-08, 0.444136, 0.229658, -3.19476e-08, -4.84556e-08, 2.41536e-08, -0.5, 2.82255, 0.0703415, -0.167732)
-
-[node name="letterN" parent="Node3D" instance=ExtResource("7_imku0")]
-transform = Transform3D(0.235367, -0.441137, -7.54979e-08, -0.441137, -0.235367, 0, -3.55395e-08, 6.66099e-08, -0.5, 2.6366, 0.703, -0.083949)
-
-[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("bat")]
-transform = Transform3D(1, 0, 0, 0, 0.517699, 0.855563, 0, -0.855563, 0.517699, 4.53641, -69.4046, -101.992)
+[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(-0.352656, -0.0527048, 0.989776, 0.369524, -2.47254, 2.20253e-09, 2.44726, 0.365746, 0.142629, 0.0206566, -70, -129.176)
 script = ExtResource("8_jsk3o")
-bat = NodePath("../heartGoodCPY/Heart/Bat")
+target = NodePath("../Node3D3")
+speed = 3.825
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dang"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-07, 0, 2.98023e-08, 0.890782, 1.8609, -0.130184, -0.378952)
+visible = false
 shape = SubResource("BoxShape3D_imku0")
 
 [node name="d" type="MeshInstance3D" parent="dang"]
@@ -1894,7 +1881,7 @@ mesh = SubResource("ArrayMesh_6iypd")
 skeleton = NodePath("")
 
 [node name="g" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4756, 0, -0.12197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4756, 3.72529e-09, -0.240056)
 mesh = SubResource("ArrayMesh_tereu")
 skeleton = NodePath("")
 
@@ -1907,17 +1894,18 @@ shape = SubResource("BoxShape3D_i5arm")
 debug_fill = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.258, -71.5636, -570.308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.135, -73.6949, -571.223)
 size = Vector3(2654.51, 0.001, 1664.81)
 material = SubResource("ORMMaterial3D_i5arm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jsk3o")
 
-[node name="Node3D2" type="Node3D" parent="." node_paths=PackedStringArray("bat")]
-transform = Transform3D(0.102262, 0, -0.160806, 0, 1.11265, 0, 0.0246511, 0, 0.667084, 18.9125, -69.8602, -102.722)
+[node name="Node3D2" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.46272, -70, -125.916)
 script = ExtResource("8_4arys")
-bat = NodePath("../heartGoodCPY")
+target = NodePath("../Node3D3")
+speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2"]
 transform = Transform3D(0.801323, 0, -5.96046e-06, 0, 0.24482, 0, 7.63685e-08, 0, 1.71267, -103.999, 2.71364, -10.9431)
@@ -1962,23 +1950,44 @@ libraries = {
 &"": SubResource("AnimationLibrary_fb76q")
 }
 
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 3.09152, -70, -125)
+script = ExtResource("3_4arys")
+target = NodePath("../Node3D3")
+speed = 4.615
+
+[node name="letterD" parent="Node3D" instance=ExtResource("4_6iypd")]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -0.271207, 0, 0)
+
+[node name="letterA" parent="Node3D" instance=ExtResource("5_tereu")]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
+
+[node name="letterR" parent="Node3D" instance=ExtResource("6_cdqbm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0956781, 0, 0)
+
+[node name="letterN" parent="Node3D" instance=ExtResource("7_imku0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.343408, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+transform = Transform3D(327.075, 0, 0, 0, -6.84999e-05, 1722.06, 0, -60.1473, -2.88911e-06, 0.137933, -10.1336, 1.70011e-08)
+
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(0.999969, 0.00738135, -0.00274212, -0.00737594, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 31.1707, -65.3353, 3.4637)
+transform = Transform3D(0.00513562, 0, 0, 0, 0.973125, 0.0655359, 0, -0.108792, 0.586205, -0.526134, -70.241, -4.98908)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3"]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, -2.35517, -3.72529e-09)
 mesh = SubResource("BoxMesh_4arys")
 
 [node name="Node3D4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.9259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -99.4991)
 visible = false
 script = ExtResource("10_6iypd")
 
 [node name="heartGoodCPY" type="Node3D" parent="."]
-transform = Transform3D(-0.0943602, 0.00345252, 0.00542753, 0.000558304, 0.583518, -3.21133e-05, 0.00195683, 7.27596e-12, 0.26173, 2.22348, -69.3555, -19.2061)
+transform = Transform3D(-0.00517874, -0.162498, 0.493219, -0.00320757, 1.04555, 0.0751209, -0.0661648, -0.0379681, -0.0422461, -13.6238, -70.901, -15.6091)
 
 [node name="Heart" type="MeshInstance3D" parent="heartGoodCPY"]
-transform = Transform3D(0.999969, 0.00738148, -0.00274211, -0.00737607, 0.999971, 0.00197846, 0.00275664, -0.00195817, 0.999994, 0, 0, 0)
+transform = Transform3D(0.999154, 0.00686192, -0.0405445, -0.00935478, 0.998056, -0.0616196, 0.040043, 0.0619468, 0.997276, -4.20661, -2.89366, 22.2809)
 mesh = SubResource("ArrayMesh_3v7ru")
 skeleton = NodePath("")
 script = ExtResource("11_cdqbm")
@@ -2077,3 +2086,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_60v50")
 }
 script = ExtResource("12_imku0")
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, -73.6591, -16.431)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D5"]
+mesh = SubResource("BoxMesh_tereu")
+material = SubResource("StandardMaterial3D_cdqbm")
