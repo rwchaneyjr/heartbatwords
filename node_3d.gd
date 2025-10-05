@@ -1,36 +1,30 @@
+# WordChaser_Min.gd  (attach to the word's root Node3D)
 extends Node3D
 
-@export var target: Node3D  # Drag your target/empty cube here
-@export var speed: float = 10.0
-@export var start_position: Node3D  # Optional: starting point
+@export var target: Node3D
+@export var speed: float = 9.0
+@export var flatten_y: bool = true  # keep motion on ground plane
 
-var is_moving: bool = true
-var returning: bool = false
+var moving_toward: bool = true  # true = go to target, false = go away
 
-func _ready():
-	# Store starting position if not set
-	if not start_position:
-		start_position = Node3D.new()
-		get_parent().add_child(start_position)
-		start_position.global_position = global_position
-	
-	# Connect collision signals from the Area3D
-	var area = get_node_or_null("Area3D")
-	if area:
-		area.body_entered.connect(_on_hit)
-		area.area_entered.connect(_on_hit)
-
-func _physics_process(delta):
-	if not is_moving:
+func _physics_process(delta: float) -> void:
+	if target == null:
 		return
-	
-	# Choose which position to move toward
-	var goal = target.global_position if not returning else start_position.global_position
-	
-	# Move toward the goal
-	global_position = global_position.move_toward(goal, speed * delta)
 
-func _on_hit(body):
-	# Check if it's the bat that hit us
-	print("Hit! Now returning: ", !returning)
-	returning = !returning
+	var d := target.global_position - global_position
+	if flatten_y:
+		d.y = 0.0
+	if d.length_squared() == 0.0:
+		return
+
+	var dir := d.normalized()
+	var step := speed * delta
+
+	if moving_toward:
+		global_position += dir * step
+	else:
+		global_position -= dir * step
+
+# Called by the bat's hit zone when the word is inside the box
+func bounce_from(_bat_pos: Vector3) -> void:
+	moving_toward = not moving_toward  # instantly flip direction

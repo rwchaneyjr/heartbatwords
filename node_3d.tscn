@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=83 format=4 uid="uid://8fjcn4x3iult"]
 
 [ext_resource type="Script" uid="uid://b3ruxyybnwf7n" path="res://camera_3d.gd" id="1_cdqbm"]
 [ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="3_4arys"]
@@ -12,9 +12,7 @@
 [ext_resource type="Script" uid="uid://bwnw6jcy7b8vi" path="res://node_3d_4.gd" id="10_6iypd"]
 [ext_resource type="Script" uid="uid://dy6dth4gp2b62" path="res://heart.gd" id="11_cdqbm"]
 [ext_resource type="Script" uid="uid://dn2tejliqsp5" path="res://animation_player.gd" id="12_imku0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_imku0"]
-size = Vector3(4.7218, 2.60779, 3.09741)
+[ext_resource type="Script" uid="uid://b4tpfj2eixdbd" path="res://hit_zone.gd" id="12_wlxy5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do2m5"]
 
@@ -50,6 +48,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ow0gs")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imku0"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc6xf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vwjcf"]
@@ -83,6 +83,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vwjcf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlxy5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7pll"]
 
@@ -118,6 +120,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_okef6")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v7ru"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ucx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t0xcy"]
@@ -152,8 +156,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t0xcy")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
-size = Vector3(14.782, 10.2511, 6.41675)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcnuu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jka67"]
 
@@ -164,9 +167,6 @@ albedo_texture = ExtResource("4_r3fl7")
 [sub_resource type="Environment" id="Environment_jsk3o"]
 background_mode = 1
 background_color = Color(0.0784314, 0.639216, 0.921569, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wlxy5"]
-size = Vector3(99.8256, 21.0348, 14.3412)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puouf"]
 
@@ -1855,43 +1855,36 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 
 [node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-0.352656, -0.0527048, 0.989776, 0.369524, -2.47254, 2.20253e-09, 2.44726, 0.365746, 0.142629, 0.0206566, -70, -129.176)
+transform = Transform3D(-0.352656, -0.0527048, 0.989776, 0.369524, -2.47254, 2.20253e-09, 2.44726, 0.365746, 0.142629, 0, -70, -129.176)
 script = ExtResource("8_jsk3o")
 target = NodePath("../Node3D3")
-speed = 3.825
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dang"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-07, 0, 2.98023e-08, 0.890782, 1.8609, -0.130184, -0.378952)
-visible = false
-shape = SubResource("BoxShape3D_imku0")
 
 [node name="d" type="MeshInstance3D" parent="dang"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.118136)
 mesh = SubResource("ArrayMesh_jsk3o")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_imku0")
 
 [node name="a" type="MeshInstance3D" parent="dang"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.894088, 0, -0.0938038)
 mesh = SubResource("ArrayMesh_4arys")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_wlxy5")
 
 [node name="n" type="MeshInstance3D" parent="dang"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61629, 0, -0.0875397)
 mesh = SubResource("ArrayMesh_6iypd")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_3v7ru")
 
 [node name="g" type="MeshInstance3D" parent="dang"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4756, 3.72529e-09, -0.240056)
 mesh = SubResource("ArrayMesh_tereu")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_tcnuu")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72972, 1.15082, 14.8175)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52456, -0.58789, -5.02089)
-shape = SubResource("BoxShape3D_i5arm")
-debug_fill = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.135, -73.6949, -571.223)
@@ -1902,14 +1895,9 @@ material = SubResource("ORMMaterial3D_i5arm")
 environment = SubResource("Environment_jsk3o")
 
 [node name="Node3D2" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.46272, -70, -125.916)
+transform = Transform3D(0.172059, 0, 0, 0, 2.21058, 0, 0, 0, 1.59133, 0, -70, -211.348)
 script = ExtResource("8_4arys")
 target = NodePath("../Node3D3")
-speed = 5.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2"]
-transform = Transform3D(0.801323, 0, -5.96046e-06, 0, 0.24482, 0, 7.63685e-08, 0, 1.71267, -103.999, 2.71364, -10.9431)
-shape = SubResource("BoxShape3D_wlxy5")
 
 [node name="LetterB" type="Node3D" parent="Node3D2"]
 transform = Transform3D(-0.602711, -0.481528, 0.945882, -0.463271, 3.8861, 0.049847, -1.8499, -0.816315, -0.320659, -93.4051, -0.879012, -14.9715)
@@ -1926,6 +1914,7 @@ libraries = {
 
 [node name="letterA" type="Node3D" parent="Node3D2"]
 transform = Transform3D(-0.420016, -0.344107, 1.07817, -0.232567, 3.98892, 0.0685909, -1.94152, -0.403374, -0.24146, -93.4024, -0.280747, -17.1667)
+visible = false
 
 [node name="Text" type="MeshInstance3D" parent="Node3D2/letterA"]
 transform = Transform3D(1, 1.75425e-16, 2.6045e-16, -2.22045e-16, 0.9815, 0.19146, -2.22045e-16, -0.19146, 0.9815, 3.72529e-09, -0.155659, -0.0252595)
@@ -1951,25 +1940,32 @@ libraries = {
 }
 
 [node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 3.09152, -70, -125)
+transform = Transform3D(4.93436, 0, -0.129053, 0, 0.007, 0, 0.127401, 0, 4.99833, 0, -70, -174.819)
+visibility_parent = NodePath("../Node3D3/MeshInstance3D")
 script = ExtResource("3_4arys")
 target = NodePath("../Node3D3")
-speed = 4.615
 
 [node name="letterD" parent="Node3D" instance=ExtResource("4_6iypd")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -0.271207, 0, 0)
+metadata/Material = Color(0, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/letterD"]
 
 [node name="letterA" parent="Node3D" instance=ExtResource("5_tereu")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/letterA"]
+
 [node name="letterR" parent="Node3D" instance=ExtResource("6_cdqbm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0956781, 0, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/letterR"]
+
 [node name="letterN" parent="Node3D" instance=ExtResource("7_imku0")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.343408, 0, 0)
+visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
-transform = Transform3D(327.075, 0, 0, 0, -6.84999e-05, 1722.06, 0, -60.1473, -2.88911e-06, 0.137933, -10.1336, 1.70011e-08)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/letterN"]
 
 [node name="Node3D3" type="Node3D" parent="."]
 transform = Transform3D(0.00513562, 0, 0, 0, 0.973125, 0.0655359, 0, -0.108792, 0.586205, -0.526134, -70.241, -4.98908)
@@ -2080,6 +2076,15 @@ skin = SubResource("Skin_ealrb")
 transform = Transform3D(0.267269, 0.0691121, -0.114956, -0.013425, 0.268784, 0.130381, 0.133459, -0.111369, 0.243331, 0.811286, 0.0103233, 1.31368)
 mesh = SubResource("ArrayMesh_jsnrv")
 skeleton = NodePath("")
+
+[node name="HitZone" type="Node3D" parent="heartGoodCPY/Heart/Bat"]
+transform = Transform3D(0.501997, 0, -9.40965e-09, 0, 0.549202, 2.35241e-09, -7.48035e-08, 6.547e-08, 0.315736, 0, 0, 0)
+script = ExtResource("12_wlxy5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="heartGoodCPY/Heart/Bat/HitZone"]
+transform = Transform3D(1, -2.83122e-07, -5.67734e-06, -2.38419e-07, 1, -3.33041e-06, -1.3113e-06, -7.45058e-08, 1, 1.55905, 14.7629, 0.97467)
+use_collision = true
+size = Vector3(32.4691, 36.2217, 37.7628)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="heartGoodCPY"]
 libraries = {
