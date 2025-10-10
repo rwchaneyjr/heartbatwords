@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var target: Node3D  # Drag your target/empty cube here
-@export var speed: float = 10.0
+@export var speed: float = 15.0
 @export var start_position: Node3D  # Optional: starting point
 
 var is_moving: bool = true
