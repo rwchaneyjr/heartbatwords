@@ -1,6 +1,5 @@
-[gd_scene load_steps=81 format=4 uid="uid://8fjcn4x3iult"]
+[gd_scene load_steps=79 format=4 uid="uid://8fjcn4x3iult"]
 
-[ext_resource type="Script" uid="uid://duibn8fyxomht" path="res://node_3d.gd" id="3_4arys"]
 [ext_resource type="PackedScene" uid="uid://c0ihdwdavsatl" path="res://Asset-Models/letterD.glb" id="4_6iypd"]
 [ext_resource type="Texture2D" uid="uid://cubr1a55brlfp" path="res://addons/simplegrasstextured/sgt_icon_48.svg" id="4_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bj7osy8cce8jy" path="res://Asset-Models/letterA.glb" id="5_tereu"]
@@ -13,7 +12,7 @@
 [ext_resource type="Script" path="res://animation_player.gd" id="12_imku0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdqbm"]
-size = Vector3(349.05, 43.1367, 33.744)
+size = Vector3(394.606, 26.8298, 20.4028)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do2m5"]
 
@@ -162,7 +161,7 @@ background_mode = 1
 background_color = Color(0.0784314, 0.639216, 0.921569, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlxy5"]
-size = Vector3(1256.19, 25.6533, 11.3216)
+size = Vector3(8083.63, 25.6533, 11.3216)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puouf"]
 
@@ -534,8 +533,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_32ubi")
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_cdqbm"]
 
 [sub_resource type="Animation" id="Animation_55046"]
 resource_name = "Armature|Action"
@@ -1844,7 +1841,7 @@ depth_draw_mode = 1
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(2.96823, 0, 1.85461, 0, 3.5, 0, -1.85461, 0, 2.96823, 24.6428, -58.3591, -8.77464)
+transform = Transform3D(0.933481, 0, 0.358628, 0, 1, 0, -0.358628, 0, 0.933481, 13.1152, -64.1205, -7.4554)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.0954461, -527.936, 2.39938, -250.296)
@@ -1853,14 +1850,11 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 visible = false
 
-[node name="dang" type="Node3D" parent="."]
-transform = Transform3D(0.0524725, 0.790223, 0.518855, 0.0190774, 0.191563, -2.12356, -0.431816, 0.104488, -0.0307687, 49.7414, -69.0789, -103.663)
+[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+transform = Transform3D(0.0524725, 0.790223, 0.518855, 0.0190774, 0.191563, -2.12356, -0.431816, 0.104488, -0.0307687, -3.15607, -69.0789, -103.663)
 script = ExtResource("8_jsk3o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(2.94872, 0.0166265, -0.0454365, -0.420103, 0.117771, -0.100299, 0.143254, 0.0196023, 4.00707, 29.1444, -3.9772, 1.58369)
-visible = false
-skeleton = NodePath("../../Node3D")
+target = NodePath("../Node3D3")
+start_position = NodePath("../Node3D6")
 
 [node name="Area3D" type="Area3D" parent="dang"]
 transform = Transform3D(1, 2.23517e-08, -2.79397e-09, -2.98023e-08, 1, -1.12923e-08, 7.45058e-09, 1.28523e-07, 1, 0, 0, 0)
@@ -1899,21 +1893,17 @@ material = SubResource("ORMMaterial3D_i5arm")
 environment = SubResource("Environment_jsk3o")
 
 [node name="Node3D2" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
-transform = Transform3D(0.00102765, 0, 0, 0, 1.49897, 0, 0, 0, 0.75866, 38.0474, -62.1852, -118.221)
+transform = Transform3D(0.00102765, 0, 0, 0, 1.49897, 0, 0, 0, 0.75866, -8.21143, -67.7088, -118.221)
 script = ExtResource("8_4arys")
 target = NodePath("../Node3D3")
+start_position = NodePath("../Node3D6")
 speed = 5.0
-start_position = NodePath("../Node3D5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
-transform = Transform3D(20.6345, 224.468, -5.33937, -0.00987152, -0.329175, -0.284796, -2.51347, 0.45989, -0.00726429, -1368.51, -4.14344, 13.3852)
-skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="Node3D2"]
-transform = Transform3D(20.6345, 224.468, -5.33937, -0.00987153, -0.329175, -0.284796, -2.51347, 0.45989, -0.00726429, -1296.83, -3.92041, 13.0636)
+transform = Transform3D(20.6344, 224.468, -5.33937, -0.00985338, -0.329318, -0.284795, -2.51347, 0.459893, -0.00726426, -1296.83, -3.92069, 13.0636)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Area3D"]
-transform = Transform3D(0.000636656, -0.00120316, -0.670192, 0.003417, -0.019792, 0.0604975, -0.00397153, -0.836712, -0.0466942, 8.5427, 3.02253, -16.125)
+transform = Transform3D(0.000636655, -0.00120318, -0.670192, 0.003417, -0.019792, 0.0604975, -0.00397154, -0.836726, -0.0466949, 9.68026, 9.12788, -23.2211)
 shape = SubResource("BoxShape3D_wlxy5")
 
 [node name="LetterB" type="Node3D" parent="Node3D2"]
@@ -1955,36 +1945,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_fb76q")
 }
 
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
-transform = Transform3D(0.536945, 0.331195, -1.78775e-07, 1.8676e-22, -1.61791e-08, -4.57076, -1.0761, 0.165257, -8.9204e-08, 23.439, -72.3209, -135.111)
-script = ExtResource("3_4arys")
-target = NodePath("../Node3D3")
-speed = 4.615
-start_position = NodePath("../Node3D5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(0.282359, -0.0572724, 0.00111751, 0.994465, 10.0288, 0.0955147, -0.014959, -0.0470122, 0.107478, -9.3696, -1.97599, -0.577144)
-skeleton = NodePath("../../Node3D2/MeshInstance3D")
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-5.25683e-08, 0.370135, -1.99794e-07, 0, -1.61791e-08, -4.57076, -1.20262, -1.61791e-08, 8.73328e-15, -10.8062, -72.3209, -146.231)
 
 [node name="Area3D" type="Area3D" parent="Node3D"]
 transform = Transform3D(0.282359, -0.0572724, 0.00111751, 0.994465, 10.0288, 0.0955147, -0.014959, -0.0470122, 0.107478, -9.3696, -1.97598, -0.577141)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-transform = Transform3D(0.000528024, 0.00516938, -1.20745, 0.00262706, 0.00801463, 0.120829, 0.00122259, -0.895347, -0.115203, 23.4308, -2.21751, 5.62857)
-visible = false
-shape = SubResource("BoxShape3D_wlxy5")
-
 [node name="letterD" parent="Node3D" instance=ExtResource("4_6iypd")]
-transform = Transform3D(0.494028, 3.16651e-09, -0.0770448, 0.0770459, -2.16102e-08, 0.494028, -2.01225e-10, -0.5, -2.18401e-08, -3.97688, 2.73688, 2.86102e-06)
+transform = Transform3D(0.494028, 3.16651e-09, -0.0770448, 0.0770459, -2.16102e-08, 0.494028, -2.01225e-10, -0.5, -2.18401e-08, -3.97688, 3.77007, 2.86102e-06)
 
 [node name="letterA" parent="Node3D" instance=ExtResource("5_tereu")]
-transform = Transform3D(0.5, -1.77636e-15, -6.51926e-09, 1.19209e-06, -2.18554e-08, 0.5, 2.66454e-15, -0.5, -2.18557e-08, -3.48583, 2.9622, 0)
+transform = Transform3D(0.5, -1.77636e-15, -6.51926e-09, 1.19209e-06, -2.18554e-08, 0.5, 2.66454e-15, -0.5, -2.18557e-08, -3.48583, 5.30874, 0)
 
 [node name="letterR" parent="Node3D" instance=ExtResource("6_cdqbm")]
-transform = Transform3D(0.5, -4.65661e-09, 3.55271e-15, 9.53674e-07, 0.5, -2.20268e-13, 1.77636e-15, 0, 0.5, -3.16641, 4.27193, 0)
+transform = Transform3D(0.5, -4.65661e-09, 3.55271e-15, 9.53674e-07, 0.5, -1.98952e-13, 1.77636e-15, -1.11022e-16, 0.5, -3.16641, 5.82604, 0)
 
 [node name="letterN" parent="Node3D" instance=ExtResource("7_imku0")]
-transform = Transform3D(0.5, -6.51926e-09, 3.55271e-15, 1.19209e-06, 0.5, -2.91323e-13, 2.66454e-15, 8.32667e-17, 0.5, -2.81727, 4.57582, 0)
+transform = Transform3D(0.5, -6.51926e-09, 3.55271e-15, 1.19209e-06, 0.5, -2.84217e-13, 2.66454e-15, -1.11022e-16, 0.5, -2.81727, 6.14374, 0)
 
 [node name="Node3D3" type="Node3D" parent="."]
 transform = Transform3D(0.00513562, 0, 0, 0, 0.973125, 0.0655359, 0, -0.108792, 0.586205, -2.96737, -66.4726, -4.98908)
@@ -2102,14 +2079,8 @@ skeleton = NodePath("")
 transform = Transform3D(1.15705, 5.96046e-08, -2.98023e-08, 0, 1.43949, 0, 2.98023e-08, 2.98023e-08, 1.01751, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="heartGoodCPY/Heart/Bat/RigidBody3D"]
-transform = Transform3D(0.87508, 4.76837e-07, 4.76837e-07, -7.82311e-08, 0.478349, 1.16974e-06, -1.11759e-07, 1.55717e-06, 0.756328, 167.514, 11.5202, 6.22205)
+transform = Transform3D(0.87508, 4.76837e-07, 0, -8.3819e-08, 0.478349, 1.15111e-06, -1.9744e-07, 1.57207e-06, 0.756328, 181.195, 7.34765, 3.70044)
 shape = SubResource("BoxShape3D_cdqbm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="heartGoodCPY/Heart/Bat/RigidBody3D"]
-transform = Transform3D(14.706, -0.738694, 7.34334, 0.301856, 1.17394, -0.486415, -0.570935, 0.647542, 1.20851, -21.5684, 0.382027, -1.13113)
-visible = false
-mesh = SubResource("ImmediateMesh_cdqbm")
-skeleton = NodePath("../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="heartGoodCPY"]
 libraries = {
@@ -2118,7 +2089,7 @@ libraries = {
 script = ExtResource("12_imku0")
 
 [node name="Node3D6" type="Node3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 5.58715, -73.6591, -16.431)
+transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 1.3199, -10.6569, -56.7135, -124.165)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.6055)
