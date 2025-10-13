@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://crxmb47ikp7o2"]
+
+[ext_resource type="PackedScene" uid="uid://cwx0y6kc4u4gx" path="res://Asset-Models/letterG.glb" id="1_m3w7o"]
+[ext_resource type="PackedScene" uid="uid://6rqjcd16ftpk" path="res://Asset-Models/letterO.glb" id="2_st4qr"]
+[ext_resource type="PackedScene" uid="uid://c0ihdwdavsatl" path="res://Asset-Models/letterD.glb" id="3_0j7db"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amhju"]
+size = Vector3(3.97754, 1.40576, 4.69086)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-0.189514, -0.633006, 1.88769, -0.00839332, 1.89646, 0.635104, -1.99098, 0.0522587, -0.18236, -9.54691, -72.3212, -115.403)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, -5.96046e-08, -5.96046e-08, -1.86265e-09, 1, 7.86968e-08, -7.45058e-09, -1.72295e-07, 0.999998, -1.02293, 0.312695, 1.29408)
+shape = SubResource("BoxShape3D_amhju")
+
+[node name="letterG" parent="." instance=ExtResource("1_m3w7o")]
+transform = Transform3D(-0.189514, -0.633006, 1.88769, -0.00839332, 1.89646, 0.635104, -1.99098, 0.0522587, -0.18236, -9.02273, -71.8918, -109.897)
+
+[node name="letterO" parent="." instance=ExtResource("2_st4qr")]
+transform = Transform3D(-0.189514, 1.88769, 0.633006, -0.00839332, 0.635104, -1.89646, -1.99098, -0.18236, -0.0522587, -9.1797, -71.8987, -111.546)
+
+[node name="letterO2" parent="." instance=ExtResource("2_st4qr")]
+transform = Transform3D(-0.189514, 1.88769, 0.633006, -0.00839332, 0.635104, -1.89646, -1.99098, -0.18236, -0.0522587, -9.34398, -71.906, -113.272)
+
+[node name="letterD" parent="." instance=ExtResource("3_0j7db")]
+transform = Transform3D(-0.189514, -0.633006, 1.88769, -0.00839332, 1.89646, 0.635104, -1.99098, 0.0522587, -0.18236, -9.57912, -71.9164, -115.742)
