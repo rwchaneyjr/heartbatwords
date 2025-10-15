@@ -2,49 +2,60 @@ extends Node3D
 
 @export var target: Node3D
 @export var start_position: Node3D
-@export var speed: float = 15.0
+@export var speed: float = 8.0
 
-var going_to_target: bool = true
+var going_to_bat := true
+var direction := Vector3.ZERO
 
-func _ready() -> void:
-	var area = $Area3D
+func _ready():
+	if target:
+		# compute flat direction (ignore Y)
+		var diff = target.global_position - global_position
+		diff.y = 0.0
+		direction = diff.normalized()
+
+	var area := $Area3D
 	if area:
-		area.body_entered.connect(_on_bat_collision)
-		#print("✓ Word ready:", name)
-		#print("  Collision Layer:", area.collision_layer)
-		#print("  Collision Mask:", area.collision_mask)
-	#else:
-		#print("✗ NO AREA3D FOUND!")
+		area.body_entered.connect(_on_hit)
+# --- Drop-in: always play "TextAction" on self + child letters ---
 
-func _physics_process(delta: float) -> void:
+
+	_play_text_action_on_self_and_children()
+
+
+func _play_text_action_on_self_and_children() -> void:
+	# on this node
+	var ap := get_node_or_null("AnimationPlayer") as AnimationPlayer
+	if ap and ap.has_animation("TextAction"):
+		ap.play("TextAction")
+		ap.animation_finished.connect(
+			func(anim_name):
+				if anim_name == "TextAction": ap.play("TextAction")
+		)
+
+	# on direct children (letters)
+	for child in get_children():
+		var cap := child.get_node_or_null("AnimationPlayer") as AnimationPlayer
+		if cap and cap.has_animation("TextAction"):
+			cap.play("TextAction")
+			cap.animation_finished.connect(
+				func(anim_name):
+					if anim_name == "TextAction": cap.play("TextAction")
+			)
+
+func _physics_process(delta):
 	if target == null or start_position == null:
 		return
-	
-	var goal: Vector3
-	
-	if going_to_target:
-		goal = target.global_position
-	else:
-		goal = start_position.global_position
-	
-	# Calculate distance (only X and Z, ignore Y)
-	var flat_goal = Vector3(goal.x, global_position.y, goal.z)
-	var distance = global_position.distance_to(flat_goal)
-	
-	if distance < 0.5:
-		if not going_to_target:
-			#print("Reached start, stopping completely")
-			set_physics_process(false)
-		return
-	
-	# Move only horizontally (X and Z), keep Y the same
-	var direction = (flat_goal - global_position).normalized()
-	global_position += direction * speed * delta
-	
-	#if not going_to_target:
-		#print("Moving BACK to start, distance:", distance)
 
-func _on_bat_collision(body: Node3D) -> void:
-	#print("!!!! COLLISION WITH:", body.name, " !!!!")
-	going_to_target = false
-	#print("Now returning to start!")
+	if going_to_bat:
+		# move flat toward bat
+		global_position += direction * speed * delta
+	else:
+		# compute new flat direction back to start each frame
+		var back_dir = start_position.global_position - global_position
+		back_dir.y = 0.0
+		global_position += back_dir.normalized() * speed * delta
+
+func _on_hit(_body):
+	print("Hit the bat! Returning to start.")
+	going_to_bat = false

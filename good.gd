@@ -9,6 +9,31 @@ func _ready():
 	if area:
 		area.area_entered.connect(_on_collision)
 		area.body_entered.connect(_on_collision)
+# --- Drop-in: always play "TextAction" on self + child letters ---
+
+
+	_play_text_action_on_self_and_children()
+
+
+func _play_text_action_on_self_and_children() -> void:
+	# on this node
+	var ap := get_node_or_null("AnimationPlayer") as AnimationPlayer
+	if ap and ap.has_animation("TextAction"):
+		ap.play("TextAction")
+		ap.animation_finished.connect(
+			func(anim_name):
+				if anim_name == "TextAction": ap.play("TextAction")
+		)
+
+	# on direct children (letters)
+	for child in get_children():
+		var cap := child.get_node_or_null("AnimationPlayer") as AnimationPlayer
+		if cap and cap.has_animation("TextAction"):
+			cap.play("TextAction")
+			cap.animation_finished.connect(
+				func(anim_name):
+					if anim_name == "TextAction": cap.play("TextAction")
+			)
 
 func _process(delta):
 	if target:
