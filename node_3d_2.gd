@@ -1,9 +1,9 @@
 extends Node3D
 
-@export var target: Node3D
+#@export var target: Node3D
 @export var start_position: Node3D
 @export var speed: float = 10.0
-
+@export var target: RigidBody3D   #
 var going_to_bat := true
 var direction := Vector3.ZERO
 

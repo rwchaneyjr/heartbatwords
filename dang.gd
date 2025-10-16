@@ -1,8 +1,16 @@
 extends Node3D
 
-@export var target: Node3D        # drag your bat (or marker) here
+#@export var target: Node3D        # drag your bat (or marker) here
 @export var start_position: Node3D  # drag a Node3D marking the start spot
 @export var speed: float = 10.0
+
+
+@export var target: RigidBody3D   # drag your RigidBody3D here
+# or accept any physics body:
+@export var target_body: PhysicsBody3D
+# 2D versions:
+@export var target_rb2d: RigidBody2D
+@export var target_body2d: PhysicsBody2D
 
 var going_to_bat := true
 var direction := Vector3.ZERO

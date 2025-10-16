@@ -1863,11 +1863,11 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 visible = false
 
-[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
 transform = Transform3D(0.0107825, 0.796604, 0.513506, 0.0190774, 0.191563, -2.12356, -0.434859, 0.0281562, -0.0804288, -12.276, -69.0789, -103.663)
 script = ExtResource("8_jsk3o")
-target = NodePath("../heartGoodCPY/Heart/Bat")
 start_position = NodePath("../Node3D6")
+target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
 
 [node name="Area3D" type="Area3D" parent="dang"]
 transform = Transform3D(1, 2.23517e-08, -2.79397e-09, -2.98023e-08, 1, -1.12923e-08, 7.45058e-09, 1.28523e-07, 1, 0, 0, 0)
@@ -1904,12 +1904,12 @@ material = SubResource("ORMMaterial3D_i5arm")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jsk3o")
 
-[node name="Bad" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+[node name="Bad" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
 transform = Transform3D(0.00102362, 0, 0.0671373, 0, 1.49897, 0, -9.09411e-05, 0, 0.755684, -13.3598, -67.0105, -129.916)
 script = ExtResource("8_4arys")
-target = NodePath("../heartGoodCPY/Heart/Bat")
 start_position = NodePath("../Node3D6")
 speed = 5.0
+target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
 
 [node name="Area3D" type="Area3D" parent="Bad"]
 transform = Transform3D(7.42325, 90.1123, -3.89529, -0.00354477, -0.132204, -0.20777, -0.904224, 0.184623, -0.00529958, -8332.35, -3.92069, 10.4301)
@@ -1957,11 +1957,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_fb76q")
 }
 
-[node name="Darn" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+[node name="Darn" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
 transform = Transform3D(-0.0127733, 0.233628, -6.60682e-09, 1.40531e-08, 1.09859e-15, -3.80428, -0.321244, -0.00928955, -1.66159e-07, -21.7336, -73.0237, -137.56)
 script = ExtResource("4_wlxy5")
-target = NodePath("../heartGoodCPY/Heart/Bat")
 start_position = NodePath("../Node3D6")
+target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
 
 [node name="Area3D" type="Area3D" parent="Darn"]
 transform = Transform3D(0.282359, -0.0572724, 0.00111751, 0.994465, 10.0288, 0.0955147, -0.014959, -0.0470122, 0.107478, -9.3696, -1.97598, -0.577141)
@@ -1987,7 +1987,6 @@ transform = Transform3D(0.00513562, 0, 0, 0, 0.973125, 0.0655359, 0, -0.108792, 
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3"]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -20.4765, -2.35517, -3.72529e-09)
-visible = false
 mesh = SubResource("BoxMesh_4arys")
 
 [node name="Area3D" type="Area3D" parent="Node3D3"]
