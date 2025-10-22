@@ -2,10 +2,11 @@ extends Node3D
 
 @export var target: RigidBody3D       # drag your bat (RigidBody3D)
 @export var start_position: Node3D    # drag your start position Node3D
-@export var speed: float = 5.0
+@export var speed: float = 3.5
 @export var arrive_distance: float = 0.2   # how close counts as "arrived"
 
 var going_to_bat := true              # true → toward bat, false → return home
+
 
 func _ready() -> void:
 	var area := $Area3D
@@ -42,11 +43,13 @@ func _physics_process(delta: float) -> void:
 			_flip(home)
 
 
-func _on_hit(_body: Node) -> void:
-	# Triggered when collider hits bat
-	if target != null:
+func _on_hit(body: Node) -> void:
+	# Only reverse if the collider is tagged "bat"
+	if body.is_in_group("bat"):
 		print("💥 Collision with bat! Reversing direction.")
 		_flip(target.global_position)
+	else:
+		print("Hit something else, ignoring.")
 
 
 func _flip(point: Vector3) -> void:

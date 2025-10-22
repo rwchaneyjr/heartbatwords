@@ -5,7 +5,7 @@ extends Camera3D
 @export var target: Node3D
 
 # === Tuning ===
-@export var distance: float = 12# smaller = closer
+@export var distance: float = 4# smaller = closer
 @export var follow_height: float = .5    # vertical lift
 @export var horizontal_offset: float =15# strafe left/right
 
