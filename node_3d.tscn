@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://6rqjcd16ftpk" path="res://Asset-Models/letterO.glb" id="12_wlxy5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdqbm"]
-size = Vector3(101.603, 16.9293, 16.9791)
+size = Vector3(2.65027, 1.3208, 13.6255)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do2m5"]
 
@@ -166,7 +166,7 @@ background_mode = 1
 background_color = Color(0.0784314, 0.639216, 0.921569, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlxy5"]
-size = Vector3(8191.58, 31.3306, 24.4554)
+size = Vector3(2820.12, 12.8988, 21.7075)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puouf"]
 
@@ -354,7 +354,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3v7ru"]
-size = Vector3(13.9943, 0.365211, 1.28198)
+size = Vector3(17.0264, 0.0864199, 1.28198)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4arys"]
 
@@ -1863,36 +1863,36 @@ transform = Transform3D(1, 0, 0, 0, -0.0954461, 0.995435, 0, -0.995435, -0.09544
 transform = Transform3D(1, 0, 0, 0, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
 visible = false
 
-[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
-transform = Transform3D(0.0107825, 0.796604, 0.513506, 0.0190774, 0.191563, -2.12356, -0.434859, 0.0281562, -0.0804288, -12.276, -69.0789, -103.663)
+[node name="dang" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+transform = Transform3D(-0.00774366, 0.673794, 1.15889, -0.0647402, 0.366837, -1.99278, -0.264157, -0.109657, 0.454422, 15.5244, -69.4621, -104.095)
 script = ExtResource("8_jsk3o")
-start_position = NodePath("../Node3D6")
 target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
+start_position = NodePath("../Node3D6")
 
 [node name="Area3D" type="Area3D" parent="dang"]
 transform = Transform3D(1, 2.23517e-08, -2.79397e-09, -2.98023e-08, 1, -1.12923e-08, 7.45058e-09, 1.28523e-07, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dang/Area3D"]
-transform = Transform3D(0.0189325, 0.0241277, -0.810193, 0.103047, 0.0789289, 0.0154467, 0.00946581, -0.121058, -0.00588491, 17.1812, -3.82071, 0.413136)
+transform = Transform3D(-0.0832891, -0.0337723, -0.995953, 0.992723, 0.0844157, -0.0858815, 0.0869768, -0.995858, 0.026499, 9.20239, -2.92052, 0.543289)
 shape = SubResource("BoxShape3D_cdqbm")
 
 [node name="d" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(1, 7.45058e-09, -1.16415e-09, -1.49012e-08, 1, -3.95812e-09, 0, 6.75209e-08, 1, 13.5671, -2.08605, 0.571655)
+transform = Transform3D(1, -5.96046e-08, 0, -2.23517e-08, 1, -2.98023e-07, -9.31323e-09, 3.63216e-08, 1, 4.45493, -3.01534, 1.06377)
 mesh = SubResource("ArrayMesh_jsk3o")
 skeleton = NodePath("")
 
 [node name="a" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(1, 7.45058e-09, -1.16415e-09, -1.49012e-08, 1, -3.95812e-09, 0, 6.75209e-08, 1, 15.1686, -2.19483, 0.631966)
+transform = Transform3D(1, -2.98023e-08, 0, -1.49012e-08, 1, -1.49012e-07, -3.72529e-09, 5.86733e-08, 1, 6.31438, -2.88022, 0.983246)
 mesh = SubResource("ArrayMesh_4arys")
 skeleton = NodePath("")
 
 [node name="n" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(1, 1.49012e-08, 0, -4.47035e-08, 1, -4.13274e-09, -4.47035e-08, -1.11293e-07, 1, 16.6426, -2.31043, 0.676468)
+transform = Transform3D(1, 0, 0, -4.47035e-08, 1, -1.49012e-07, -4.84288e-08, -1.27591e-07, 1, 8.45508, -2.9442, 1.0013)
 mesh = SubResource("ArrayMesh_6iypd")
 skeleton = NodePath("")
 
 [node name="g" type="MeshInstance3D" parent="dang"]
-transform = Transform3D(1, 7.45058e-09, -1.16415e-09, -1.49012e-08, 1, -3.95812e-09, 0, 6.75209e-08, 1, 18.0272, -2.39118, 0.550629)
+transform = Transform3D(1, -5.96046e-08, 1.19209e-07, -1.49012e-08, 1, -4.17233e-07, -5.58794e-09, 3.63216e-08, 1, 10.6943, -3.16472, 0.961634)
 mesh = SubResource("ArrayMesh_tereu")
 skeleton = NodePath("")
 
@@ -1904,23 +1904,22 @@ material = SubResource("ORMMaterial3D_i5arm")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jsk3o")
 
-[node name="Bad" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
-transform = Transform3D(0.00102362, 0, 0.0671373, 0, 1.49897, 0, -9.09411e-05, 0, 0.755684, -13.3598, -67.0105, -129.916)
+[node name="Bad" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+transform = Transform3D(0.000998761, -0.328342, 0.0655068, 0.000224219, 1.46256, 0.0147062, -9.09411e-05, -1.07173e-08, 0.755684, -13.3598, -67.0105, -129.916)
 script = ExtResource("8_4arys")
-start_position = NodePath("../Node3D6")
-speed = 5.0
 target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
+start_position = NodePath("../Node3D6")
+speed = 10.0
 
 [node name="Area3D" type="Area3D" parent="Bad"]
 transform = Transform3D(7.42325, 90.1123, -3.89529, -0.00354477, -0.132204, -0.20777, -0.904224, 0.184623, -0.00529958, -8332.35, -3.92069, 10.4301)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bad/Area3D"]
-transform = Transform3D(0.00240867, 0.0426044, -0.511673, 0.0127653, 0.196441, 0.0576118, -0.00830678, -0.756994, -0.0505228, 13.1247, 48.2895, -38.2637)
+transform = Transform3D(0.00240867, 0.0426053, -0.511672, 0.0127653, 0.196439, 0.0576119, -0.00830678, -0.756992, -0.0505228, 12.0074, 35.7142, -36.1033)
 shape = SubResource("BoxShape3D_wlxy5")
 
 [node name="LetterB" type="Node3D" parent="Bad"]
-transform = Transform3D(-0.473206, -3.18885e-05, 0.97161, 0.000522889, 4, 7.59223e-05, -1.94322, 0.00109059, -0.236584, -3909.92, -3.9586, 11.6279)
-visible = false
+transform = Transform3D(-0.465294, 0.722256, 0.955656, 0.0860045, 3.93426, -0.175364, -1.94322, 0.00117743, -0.236586, -3909.92, -3.95861, 11.6279)
 
 [node name="Text" type="MeshInstance3D" parent="Bad/LetterB"]
 transform = Transform3D(1, 0, 0, 0, 0.976383, -0.216048, 0, 0.216048, 0.976383, 0, 0.135876, 0.0300657)
@@ -1958,17 +1957,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_fb76q")
 }
 
-[node name="Darn" type="Node3D" parent="." node_paths=PackedStringArray("start_position", "target")]
-transform = Transform3D(-0.0127733, 0.233628, -6.60682e-09, 1.40531e-08, 1.09859e-15, -3.80428, -0.321244, -0.00928955, -1.66159e-07, -21.7336, -73.0237, -137.56)
+[node name="Darn" type="Node3D" parent="." node_paths=PackedStringArray("target", "start_position")]
+transform = Transform3D(-0.0108821, 0.199036, 1.99209, -0.00668865, 0.122338, -3.24101, -0.321244, -0.00928955, -1.78715e-07, -21.7336, -70.8431, -137.56)
 script = ExtResource("4_wlxy5")
-start_position = NodePath("../Node3D6")
 target = NodePath("../heartGoodCPY/Heart/Bat/RigidBody3D")
+start_position = NodePath("../Node3D6")
+speed = 10.0
 
 [node name="Area3D" type="Area3D" parent="Darn"]
 transform = Transform3D(0.282359, -0.0572724, 0.00111751, 0.994465, 10.0288, 0.0955147, -0.014959, -0.0470122, 0.107478, -9.3696, -1.97598, -0.577141)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Darn/Area3D"]
-transform = Transform3D(1.45891, 0.565329, -0.231519, -0.129112, 6.53508, -0.134286, 0.0774818, 0.244015, 4.13573, 11.3817, -0.507004, 2.8873)
+transform = Transform3D(1.45304, 0.590935, -0.422301, -0.136878, 6.5328, -0.115956, 0.145046, 0.244543, 4.12117, 14.4652, -0.724976, 5.60812)
 shape = SubResource("BoxShape3D_3v7ru")
 
 [node name="letterD" parent="Darn" instance=ExtResource("4_6iypd")]
@@ -1997,7 +1997,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -99.4991)
 script = ExtResource("10_6iypd")
 
 [node name="heartGoodCPY" type="Node3D" parent="."]
-transform = Transform3D(-0.00517874, -0.162498, 0.493219, -0.00320757, 1.04555, 0.0751209, -0.0661648, -0.0379681, -0.0422461, -16.9111, -70.901, -15.6091)
+transform = Transform3D(-0.0779407, -0.153476, 0.985074, -0.0482743, 0.987502, 0.150035, -0.995789, -0.03586, -0.0843755, -29.9818, -73.3384, -19.0943)
 
 [node name="Heart" type="MeshInstance3D" parent="heartGoodCPY"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.20661, -2.89366, 22.2809)
@@ -2089,15 +2089,15 @@ mesh = SubResource("ArrayMesh_i0g27")
 skin = SubResource("Skin_ealrb")
 
 [node name="Bat" type="MeshInstance3D" parent="heartGoodCPY/Heart"]
-transform = Transform3D(0.0214502, 0.0556987, -0.115326, -0.00107745, 0.216617, 0.1308, 0.010711, -0.0897538, 0.244113, 0.811218, 0.0102997, 1.31369)
+transform = Transform3D(0.270219, 0.0615509, -0.114862, -0.0445991, 0.29214, 0.0516266, 0.122445, -0.0294258, 0.272289, 0.811214, 0.0102692, 1.31369)
 mesh = SubResource("ArrayMesh_jsnrv")
 skeleton = NodePath("")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="heartGoodCPY/Heart/Bat"]
-transform = Transform3D(1.15705, 5.96046e-08, -2.98023e-08, 0, 1.43949, 0, 2.98023e-08, 2.98023e-08, 1.01751, 0, 0, 0)
+transform = Transform3D(1.15705, -7.67622e-16, -2.62081e-08, 0, 1.43949, -2.10659e-08, 2.98023e-08, 2.98023e-08, 1.01751, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="heartGoodCPY/Heart/Bat/RigidBody3D"]
-transform = Transform3D(0.87508, 4.76837e-07, 0, -8.3819e-08, 0.478349, 1.15111e-06, -1.9744e-07, 1.57207e-06, 0.756328, 21.1172, 7.77703, 0.182587)
+transform = Transform3D(-0.251458, 0.163391, 0.00848079, 0.0376396, 0.0729045, -0.288562, -0.159223, -0.240807, -0.0816079, -1.0915, 7.10542, 2.49048)
 shape = SubResource("BoxShape3D_cdqbm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="heartGoodCPY"]
@@ -2140,7 +2140,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.070
 
 [node name="letterD" parent="Good" instance=ExtResource("4_6iypd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169982, 0, 0)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Good"]
 transform = Transform3D(1, -1.06171e-07, -4.99189e-07, -7.45058e-09, 1, -2.99886e-07, 0, -2.67057e-07, 0.999999, -1.0214, -0.0326195, -0.524052)
