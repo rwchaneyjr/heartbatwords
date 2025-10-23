@@ -4,18 +4,17 @@ extends Node3D
 @export var start_position: Node3D    # drag your start position Node3D
 @export var speed: float = 3.5
 @export var arrive_distance: float = 0.2   # how close counts as "arrived"
+@export var bat_group: StringName = &"bat" # group/tag name to accept as "bat"
 
 var going_to_bat := true              # true → toward bat, false → return home
-
 
 func _ready() -> void:
 	var area := $Area3D
 	if area:
-		area.body_entered.connect(_on_hit)
-		area.area_entered.connect(_on_hit)
+		area.body_entered.connect(_on_hit)   # collides with physics bodies
+		area.area_entered.connect(_on_hit)   # (optional) if bat ever uses Area3D
 
 	_play_text_action_on_self_and_children()
-
 
 func _physics_process(delta: float) -> void:
 	if target == null or start_position == null:
@@ -28,8 +27,7 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.move_toward(to, speed * delta)
 
 		# --- Flip if very close (arrived) ---
-		if global_position.distance_to(to) <= arrive_distance:
-			print("Reached bat, turning back!")
+		if arrive_distance > 0.0 and global_position.distance_to(to) <= arrive_distance:
 			_flip(to)
 	else:
 		# --- Move back toward start position ---
@@ -38,26 +36,20 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.move_toward(home, speed * delta)
 
 		# --- Flip if back at start (optional) ---
-		if global_position.distance_to(home) <= arrive_distance:
-			print("Back home, going to bat again!")
+		if arrive_distance > 0.0 and global_position.distance_to(home) <= arrive_distance:
 			_flip(home)
 
-
 func _on_hit(body: Node) -> void:
-	# Only reverse if the collider is tagged "bat"
-	if body.is_in_group("bat"):
-		print("💥 Collision with bat! Reversing direction.")
+	# Turn around ONLY if we hit the bat (target) or anything in the 'bat' group.
+	if (target != null and body == target) or body.is_in_group(bat_group):
 		_flip(target.global_position)
-	else:
-		print("Hit something else, ignoring.")
-
 
 func _flip(point: Vector3) -> void:
 	going_to_bat = not going_to_bat
+	# tiny nudge off surface so we don't stay intersecting
 	var push := (global_position - Vector3(point.x, global_position.y, point.z)).normalized()
 	if push.length() > 0.0:
-		global_position += push * arrive_distance   # tiny nudge off surface
-
+		global_position += push * max(arrive_distance, 0.05)
 
 # --- Optional animation helper ---
 func _play_text_action_on_self_and_children() -> void:
