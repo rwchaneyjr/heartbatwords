@@ -5,9 +5,9 @@ extends Camera3D
 @export var target: Node3D
 
 # === Tuning ===
-@export var distance: float = 4# smaller = closer
+@export var distance: float = 3# smaller = closer
 @export var follow_height: float = .5    # vertical lift
-@export var horizontal_offset: float =15# strafe left/right
+@export var horizontal_offset: float =9# strafe left/right
 
 # Offset space:
 # - use_initial_camera_axes: lock offset to how this camera was oriented at _ready()
